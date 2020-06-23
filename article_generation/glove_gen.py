@@ -1,4 +1,3 @@
-
 import torch
 import time
 
@@ -16,7 +15,7 @@ CONLL_DATASET_PATH = 'data/dataset_conll/si'
 
 print('I work!')
 
-# предобученная GloVe модель
+# pretrained GloVe
 glove_model = gensim.models.KeyedVectors.load_word2vec_format('gensim_glove_vectors.txt')  
 print('Glove loaded successfully.')
 
@@ -57,9 +56,3 @@ for target in ['neutral', 'propaganda']:
         m = (end - start)//60
         s = (end - start)%60
         print(f'Number {i} out of 12 ready in {m} minutes {s} seconds')
-                    
-                    
-                    
-                    
-                            
-                            

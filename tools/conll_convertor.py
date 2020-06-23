@@ -13,6 +13,7 @@ def correct(token):
         return False
     return True
 
+
 class CONLLConvertor:
 
     @staticmethod

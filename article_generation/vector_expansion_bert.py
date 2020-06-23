@@ -6,7 +6,7 @@ from multi_rake import Rake
 import numpy as np
 
 
-class ArticleGenerator():
+class ArticleGenerator:
 
     def __init__(self, model_dict, stopwords, model_name = 'glove', strat = 'keywords', 
                       label = None, postype =None, closest = 1, 
@@ -126,22 +126,6 @@ class ArticleGenerator():
         return keywords
 
 
- #  def get_tokens(self, article):
- #      """
- #      Get list of all words in the text.
- #      :params:
- #          article, list of sentences, sentences are lists of strings--
- #          element of the dataset
- #      :returns:
- #          tokens, list of strings
- #      """
- #      tokens = []
- #      for sentence in article:
- #          for comb in sentence:
- #              word, label = comb.split()
- #              tokens.append(word.lower())
- #      return tokens
-
     def get_words(self, article):
         """
         Create a list of words that are to be changed.
@@ -222,56 +206,6 @@ class ArticleGenerator():
 
         return changedict
 
-
-    #def get_bert_changes(self, words, article):
-    #    """
-    #    Creates a dict object to be later used for synonimization with Bert.
-    #    :params:
-    #        words, dict of strings:ints -- words that are to be changed and
-    #        indices of sentences
-    #
-    #    :returns:
-    #        changedict, dict, words (str): synonimns (str) -- dictionary to be used 
-    #        for synonimization
-    #    """
-    #    changedict = {}
-    #    closest_array = list(np.random.choice(np.array([self.closest, self.closest + 1, 
-    #                                                    self.closest + 2]), size = int(len(words))))
-    #    for pair, closest in zip(words.items(), closest_array):
-    #        word, index = pair
-    #        sentence = article[index]
-    #        clear_sentence = list([comb.split()[0] for comb in sentence])
-    #        raw_sentence = list([b.lower()+ ' ' if b.lower()!= word else '__'+b.lower()+'__ ' for b in clear_sentence])
-    #        text_sentence = "".join(raw_sentence)
-    #        #print('Step1')
-    #        #print(word)
-    #        #print(text_sentence)
-    #        try:
-    #            synonyms = self.model(text_sentence)
-    #            #print('Step 2')
-    #            #print(synonyms)
-    #            for i in range(closest, closest+3):
-    #                alt = synonyms[i][0]
-    #                alt = alt.lower()
-    #                if not alt.isalnum() or alt in self.stopwords:
-    #                    if i == closest+2:
-    #                        alt = word
-    #                    else:
-    #                        continue
-    #                else:
-    #                    break
-    #                    
-    #        except:
-    #            alt = word
-    #        #print('Step 3')
-    #        #print(alt)
-    #        changedict[word] = alt
-    #    
-    #    
-    #    self.bert_changedict = changedict
-    #    
-    #    
-    #    return changedict
 
     def get_bert_superdict(self, dataset):
         for i in range(len(dataset)):

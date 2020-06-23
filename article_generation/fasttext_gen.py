@@ -1,4 +1,3 @@
-
 import time
 
 
@@ -55,9 +54,3 @@ for target in [None]:
         m = (end - start)//60
         s = (end - start)%60
         print(f'Number {i} out of 12 ready in {m} minutes {s} seconds')
-                    
-                    
-                    
-                    
-                            
-                            
