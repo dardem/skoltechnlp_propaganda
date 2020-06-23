@@ -15,7 +15,7 @@ class MarkUpVisualizer:
             classes_names = CLASSES_NAMES_SI_BILUO
         else:
             classes_names = CLASSES_NAMES_TC
-        lenend = '<h3> Легенда: </h3>'
+        lenend = '<h3> Legend: </h3>'
         for i in classes_hightlights.keys():
             lenend += '<br>' + str(i) + ' : ' + classes_hightlights[i]('test') + ' : ' + classes_names[i]
         return lenend
